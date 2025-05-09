@@ -34,6 +34,31 @@
             color: #2d2d2d;
             letter-spacing: -0.01em;
         }
+        .copy-success {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            margin-left: 4px;
+        }
+        .copy-success.show {
+            display: inline-flex;
+            opacity: 1;
+            animation: fadeInOut 2s ease;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .copy-btn {
+            position: relative;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -56,9 +81,16 @@
                         <a href="https://github.com/barnett-yuxiang" class="hover:opacity-80" target="_blank" aria-label="GitHub">
                             <img src="assets/cgithub.svg" alt="GitHub" class="w-8 h-8" width="32" height="32">
                         </a>
-                        <a href="mailto:barnett.yuxiang@gmail.com" class="hover:opacity-80" aria-label="Email">
-                            <img src="assets/cemail.svg" alt="Email" class="w-8 h-8" width="32" height="32">
-                        </a>
+                        <div class="relative">
+                            <button class="copy-btn hover:opacity-80" aria-label="Copy Email" onclick="copyEmail()">
+                                <img src="assets/cemail.svg" alt="Email" class="w-8 h-8" width="32" height="32">
+                                <span class="copy-success text-green-500 bg-white rounded-full shadow-sm p-0.5 flex items-center justify-center" style="width: 24px; height: 24px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -121,5 +153,18 @@
     <!-- Footer Spacer -->
     <footer class="border-t pt-4 mt-8 h-16 max-w-3xl mx-auto px-4"></footer>
 
+    <script>
+        function copyEmail() {
+            const email = "barnett.yuxiang@gmail.com";
+            navigator.clipboard.writeText(email).then(function() {
+                const successIcon = document.querySelector('.copy-success');
+                successIcon.classList.add('show');
+
+                setTimeout(() => {
+                    successIcon.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
