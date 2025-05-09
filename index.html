@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yuxiang | Personal Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body { font-family: system-ui, sans-serif; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 max-w-3xl mx-auto px-4 py-8">
+
+    <!-- Header -->
+    <header class="flex items-center space-x-4 mb-8">
+        <img src="assets/avatar.jpg" alt="Avatar" class="w-20 h-20 rounded-full">
+        <div>
+            <h1 class="text-2xl font-bold">Yuxiang</h1>
+            <p class="text-sm text-gray-600">A curious engineer, builder & explorer of ideas.</p>
+            <div class="flex space-x-2 mt-2">
+                <a href="#" class="text-blue-600 hover:underline">GitHub</a>
+                <a href="#" class="text-blue-600 hover:underline">Twitter</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Timeline -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Timeline</h2>
+        <div class="relative pl-8 space-y-6 timeline">
+            <div class="relative">
+                <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
+                <h3 class="font-semibold">2024 — Started My AI Journey</h3>
+                <p class="text-sm text-gray-600">Working on LLMs and deploying small open-source tools.</p>
+            </div>
+            <div class="relative">
+                <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
+                <h3 class="font-semibold">2023 — Left Big Tech, Focused on Solo Projects</h3>
+                <p class="text-sm text-gray-600">Began building tools and trading systems independently.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Pet Projects</h2>
+        <ul class="space-y-2 list-disc list-inside">
+            <li><strong>LLM Prompt Manager:</strong> A CLI & Web tool for managing prompts.</li>
+            <li><strong>TradingView Logger:</strong> Logs & tags trades automatically from charts.</li>
+        </ul>
+    </section>
+
+    <!-- Talks -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4">Tech Talks</h2>
+        <ul class="space-y-2 list-disc list-inside">
+            <li><a href="#" class="text-blue-600 hover:underline">GPT Optimization @ AI Meetup</a></li>
+            <li><a href="#" class="text-blue-600 hover:underline">Infra for Indie Hackers — 2024</a></li>
+        </ul>
+    </section>
+
+    <!-- Footer Spacer -->
+    <footer class="border-t pt-4 mt-8 h-16"></footer>
+
+</body>
+</html>
