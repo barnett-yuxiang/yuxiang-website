@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yuxiang | Personal Site</title>
+    <title>Yu Xiang</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
     <style>
         body { font-family: system-ui, sans-serif; }
         .timeline::before {
@@ -22,23 +25,38 @@
             margin: 0 auto;
             width: 100%;
         }
+        .avatar-border {
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .newsreader {
+            font-family: 'Newsreader', 'Times New Roman', Times, serif;
+            color: #2d2d2d;
+            letter-spacing: -0.01em;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
 
     <!-- Header Section (Same bg as Timeline) -->
     <section class="bg-gray-50">
-        <header class="max-w-3xl mx-auto px-4 py-8 flex items-center space-x-4">
-            <img src="assets/avatar.jpg" alt="Avatar" class="w-20 h-20 rounded-full">
-            <div>
-                <h1 class="text-2xl font-bold">Yu Xiang</h1>
-                <p class="text-sm text-gray-600">A curious engineer, builder & explorer of ideas.</p>
-                <div class="flex space-x-2 mt-2">
-                    <a href="#" class="text-blue-600 hover:underline">GitHub</a>
-                    <a href="#" class="text-blue-600 hover:underline">Twitter</a>
+        <div class="max-w-3xl mx-auto px-4 py-8 flex justify-center">
+            <header class="flex items-center space-x-4">
+                <img src="assets/avatar.png" alt="Avatar" class="w-20 h-20 rounded-full avatar-border object-cover">
+                <div>
+                    <h1 class="text-2xl newsreader font-semibold">Yu Xiang</h1>
+                    <div class="text-sm text-gray-600 my-2">
+                        <p>✰ Past: Infra / Cloud Eng / Android <a href="https://www.bytedance.com/en/news" class="underline" target="_blank">@ByteDance</a> ;</p>
+                        <p>✰ Present: Generative AI Enthusiast / K-line Enthusiast / <a href="https://www.qodo.ai/" class="underline" target="_blank">@QodoAI</a>.</p>
+                    </div>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="text-blue-600 hover:underline" target="_blank">GitHub</a>
+                        <a href="#" class="text-blue-600 hover:underline" target="_blank">Twitter</a>
+                        <a href="mailto:example@example.com" class="text-blue-600 hover:underline">Mail</a>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
+        </div>
 
         <!-- Gradient Divider -->
         <div class="gradient-divider"></div>
