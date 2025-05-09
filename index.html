@@ -16,60 +16,86 @@
             width: 2px;
             background: #e5e7eb;
         }
+        .gradient-divider {
+            height: 1px;
+            background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.5), rgba(59, 130, 246, 0.2));
+            margin: 0 auto;
+            width: 100%;
+        }
     </style>
 </head>
-<body class="bg-white text-gray-800 max-w-3xl mx-auto px-4 py-8">
+<body class="bg-white text-gray-800">
 
-    <!-- Header -->
-    <header class="flex items-center space-x-4 mb-8">
-        <img src="assets/avatar.jpg" alt="Avatar" class="w-20 h-20 rounded-full">
-        <div>
-            <h1 class="text-2xl font-bold">Yuxiang</h1>
-            <p class="text-sm text-gray-600">A curious engineer, builder & explorer of ideas.</p>
-            <div class="flex space-x-2 mt-2">
-                <a href="#" class="text-blue-600 hover:underline">GitHub</a>
-                <a href="#" class="text-blue-600 hover:underline">Twitter</a>
+    <!-- Header Section (Same bg as Timeline) -->
+    <section class="bg-gray-50">
+        <header class="max-w-3xl mx-auto px-4 py-8 flex items-center space-x-4">
+            <img src="assets/avatar.jpg" alt="Avatar" class="w-20 h-20 rounded-full">
+            <div>
+                <h1 class="text-2xl font-bold">Yu Xiang</h1>
+                <p class="text-sm text-gray-600">A curious engineer, builder & explorer of ideas.</p>
+                <div class="flex space-x-2 mt-2">
+                    <a href="#" class="text-blue-600 hover:underline">GitHub</a>
+                    <a href="#" class="text-blue-600 hover:underline">Twitter</a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Timeline -->
-    <section class="mb-12">
-        <h2 class="text-xl font-semibold mb-4">Timeline</h2>
-        <div class="relative pl-8 space-y-6 timeline">
-            <div class="relative">
-                <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
-                <h3 class="font-semibold">2024 — Started My AI Journey</h3>
-                <p class="text-sm text-gray-600">Working on LLMs and deploying small open-source tools.</p>
-            </div>
-            <div class="relative">
-                <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
-                <h3 class="font-semibold">2023 — Left Big Tech, Focused on Solo Projects</h3>
-                <p class="text-sm text-gray-600">Began building tools and trading systems independently.</p>
-            </div>
-        </div>
+        <!-- Gradient Divider -->
+        <div class="gradient-divider"></div>
     </section>
 
-    <!-- Projects -->
-    <section class="mb-12">
-        <h2 class="text-xl font-semibold mb-4">Pet Projects</h2>
-        <ul class="space-y-2 list-disc list-inside">
-            <li><strong>LLM Prompt Manager:</strong> A CLI & Web tool for managing prompts.</li>
-            <li><strong>TradingView Logger:</strong> Logs & tags trades automatically from charts.</li>
-        </ul>
+    <!-- Timeline (Same bg as Header) -->
+    <section class="bg-gray-50 py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-xl font-semibold mb-4">Timeline</h2>
+            <div class="relative pl-8 space-y-6 timeline">
+                <div class="relative">
+                    <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
+                    <h3 class="font-semibold">2024 — Started My AI Journey</h3>
+                    <p class="text-sm text-gray-600">Working on LLMs and deploying small open-source tools.</p>
+                </div>
+                <div class="relative">
+                    <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
+                    <h3 class="font-semibold">2023 — Left Big Tech, Focused on Solo Projects</h3>
+                    <p class="text-sm text-gray-600">Began building tools and trading systems independently.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Talks -->
-    <section class="mb-12">
-        <h2 class="text-xl font-semibold mb-4">Tech Talks</h2>
-        <ul class="space-y-2 list-disc list-inside">
-            <li><a href="#" class="text-blue-600 hover:underline">GPT Optimization @ AI Meetup</a></li>
-            <li><a href="#" class="text-blue-600 hover:underline">Infra for Indie Hackers — 2024</a></li>
-        </ul>
+    <section class="bg-white py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-xl font-semibold mb-4">Talks</h2>
+            <ul class="space-y-2 list-disc list-inside">
+                <li><a href="#" class="text-blue-600 hover:underline">GPT Optimization @ AI Meetup</a></li>
+                <li><a href="#" class="text-blue-600 hover:underline">Infra for Indie Hackers — 2024</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pet Projects -->
+    <section class="bg-gray-50 py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-xl font-semibold mb-4">Pet Projects</h2>
+            <ul class="space-y-2 list-disc list-inside">
+                <li><strong>LLM Prompt Manager:</strong> A CLI & Web tool for managing prompts.</li>
+                <li><strong>TradingView Logger:</strong> Logs & tags trades automatically from charts.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Featured Writing -->
+    <section class="bg-white py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-xl font-semibold mb-4">Featured Writing</h2>
+            <p class="mb-2">I have a Bear blog where I write about technology, programming, and personal projects.</p>
+            <a href="#" class="text-blue-600 hover:underline">Visit my blog →</a>
+        </div>
     </section>
 
     <!-- Footer Spacer -->
-    <footer class="border-t pt-4 mt-8 h-16"></footer>
+    <footer class="border-t pt-4 mt-8 h-16 max-w-3xl mx-auto px-4"></footer>
 
 </body>
 </html>
