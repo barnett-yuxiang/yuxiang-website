@@ -10,21 +10,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
     <style>
         body { font-family: system-ui, sans-serif; }
+        /* Gradient divider for visual separation */
         .gradient-divider {
             height: 1.5px;
             background: linear-gradient(to right, rgba(209, 213, 219, 0.4), rgba(156, 163, 175, 0.7), rgba(209, 213, 219, 0.4));
             margin: 0 auto;
             width: 100%;
         }
+        /* Profile avatar styling */
         .avatar-border {
             border: 3px solid white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        /* Custom font styling for name */
         .newsreader {
             font-family: 'Newsreader', 'Times New Roman', Times, serif;
             color: #2d2d2d;
             letter-spacing: -0.01em;
         }
+        /* Email copy button success animation styling */
         .copy-success {
             display: none;
             opacity: 0;
@@ -50,10 +54,11 @@
             position: relative;
             cursor: pointer;
         }
-        /* 添加时间线垂直连接线样式 */
+        /* Timeline vertical connector line styles */
         .timeline-container {
             position: relative;
         }
+        /* Pseudo-element to create vertical line connecting timeline nodes */
         .timeline-container::before {
             content: '';
             position: absolute;
@@ -68,7 +73,7 @@
 </head>
 <body class="bg-white text-gray-800">
 
-    <!-- Header Section (Same bg as Timeline) -->
+    <!-- Header Section with avatar and contact info -->
     <section class="bg-gray-50">
         <div class="max-w-3xl mx-auto px-4 py-8 flex justify-center">
             <header class="flex items-center space-x-4">
@@ -79,6 +84,7 @@
                         <p>✰ Past: Infra / Cloud Eng / Android <a href="https://www.bytedance.com/en/news" class="underline" target="_blank">@ByteDance</a> ;</p>
                         <p>✰ Present: Generative AI Enthusiast / K-line Enthusiast / <a href="https://www.qodo.ai/" class="underline" target="_blank">@QodoAI</a>.</p>
                     </div>
+                    <!-- Social media and contact links -->
                     <div class="flex space-x-4 mt-2">
                         <a href="https://x.com/yuli_kamakura" class="hover:opacity-80" target="_blank" aria-label="Twitter">
                             <img src="assets/ctwitter.svg" alt="Twitter" class="w-8 h-8" width="32" height="32">
@@ -86,6 +92,7 @@
                         <a href="https://github.com/barnett-yuxiang" class="hover:opacity-80" target="_blank" aria-label="GitHub">
                             <img src="assets/cgithub.svg" alt="GitHub" class="w-8 h-8" width="32" height="32">
                         </a>
+                        <!-- Email copy button with success animation -->
                         <div class="relative">
                             <button class="copy-btn hover:opacity-80" aria-label="Copy Email" onclick="copyEmail()">
                                 <img src="assets/cemail.svg" alt="Email" class="w-8 h-8" width="32" height="32">
@@ -105,18 +112,25 @@
         <div class="gradient-divider"></div>
     </section>
 
-    <!-- Timeline (Same bg as Header) -->
+    <!-- Timeline Section showing professional and educational history -->
     <section class="bg-gray-50 py-4">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-xl font-semibold mb-4">Timeline</h2>
+            <!-- Timeline container with vertical connecting line -->
             <div class="relative space-y-6 timeline-container">
+
+                <!-- Timeline item: Independent Entrepreneur -->
                 <div class="relative">
                     <div class="flex items-start">
+                        <!-- Date label (positioned absolutely to the left) -->
                         <div class="text-xs text-gray-500 w-28 text-right mr-2 mt-1 absolute whitespace-nowrap" style="left: -7.8rem;">2023.05 - Present</div>
+                        <!-- Timeline node dot -->
                         <div class="w-2 h-2 bg-gray-300 rounded-full flex-shrink-0 mr-4 mt-1.5"></div>
+                        <!-- Company/Organization logo -->
                         <div class="w-12 h-12 bg-white rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden border border-gray-300">
                             <img src="assets/bootstrap_logo.png" alt="Bootstrap Logo" class="w-8 h-8 object-contain">
                         </div>
+                        <!-- Timeline item content -->
                         <div class="flex-1">
                             <h3 class="text-lg font-semibold">Independent Entrepreneur | AI for Coding & U.S. Equity Trader</h3>
                             <p class="text-gray-600 mt-2 mb-3">Contributed to CodiumAI, an Israeli AI startup, as an open-source developer, participating in the design, development, maintenance, and deployment of two core projects: <a href="https://github.com/qodo-ai/pr-agent" class="text-blue-600 underline" target="_blank">PR-Agent</a> and <a href="https://github.com/qodo-ai/qodo-cover" class="text-blue-600 underline" target="_blank">Cover-Agent</a>.</p>
@@ -124,6 +138,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Timeline item: Mobile Infra Engineer -->
                 <div class="relative">
                     <div class="flex items-start">
                         <div class="text-xs text-gray-500 w-28 text-right mr-2 mt-1 absolute whitespace-nowrap" style="left: -7.8rem;">2022.09 - 2023.04</div>
@@ -139,6 +155,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Timeline item: Infra, Quality & Experience -->
                 <div class="relative">
                     <div class="flex items-start">
                         <div class="text-xs text-gray-500 w-28 text-right mr-2 mt-1 absolute whitespace-nowrap" style="left: -7.8rem;">2020.03 - 2022.08</div>
@@ -162,6 +180,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Timeline item: Android Client Engineer -->
                 <div class="relative">
                     <div class="flex items-start">
                         <div class="text-xs text-gray-500 w-28 text-right mr-2 mt-1 absolute whitespace-nowrap" style="left: -7.8rem;">2018.07 - 2020.02</div>
@@ -186,6 +206,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Timeline item: Android OS Engineer -->
                 <div class="relative">
                     <div class="flex items-start">
                         <div class="text-xs text-gray-500 w-28 text-right mr-2 mt-1 absolute whitespace-nowrap" style="left: -7.8rem;">2016.03 - 2018.06</div>
@@ -203,6 +225,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Timeline item: Master's Degree -->
                 <div class="relative">
                     <div class="flex items-start">
                         <div class="text-xs text-gray-500 w-28 text-right mr-2 mt-1 absolute whitespace-nowrap" style="left: -7.8rem;">2013.09 - 2016.01</div>
@@ -216,6 +240,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Timeline item: Bachelor's Degree -->
                 <div class="relative">
                     <div class="flex items-start">
                         <div class="text-xs text-gray-500 w-28 text-right mr-2 mt-1 absolute whitespace-nowrap" style="left: -7.8rem;">2009.09 - 2013.06</div>
@@ -233,7 +259,7 @@
         </div>
     </section>
 
-    <!-- Talks -->
+    <!-- Talks Section - Public speaking engagements -->
     <section class="bg-white py-4">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-xl font-semibold mb-4">Talks</h2>
@@ -244,7 +270,7 @@
         </div>
     </section>
 
-    <!-- Pet Projects -->
+    <!-- Pet Projects Section - Personal development projects -->
     <section class="bg-gray-50 py-4">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-xl font-semibold mb-4">Pet Projects</h2>
@@ -255,7 +281,7 @@
         </div>
     </section>
 
-    <!-- Featured Writing -->
+    <!-- Featured Writing Section - Blog and publications -->
     <section class="bg-white py-4">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-xl font-semibold mb-4">Featured Writing</h2>
@@ -264,16 +290,22 @@
         </div>
     </section>
 
-    <!-- Footer Spacer -->
+    <!-- Footer -->
     <footer class="border-t pt-4 mt-8 h-16 max-w-3xl mx-auto px-4"></footer>
 
+    <!-- JavaScript for interactive functionality -->
     <script>
+        /**
+         * Copies email address to clipboard and shows success animation
+         * The animation automatically hides after 2 seconds
+         */
         function copyEmail() {
             const email = "barnett.yuxiang@gmail.com";
             navigator.clipboard.writeText(email).then(function() {
                 const successIcon = document.querySelector('.copy-success');
                 successIcon.classList.add('show');
 
+                // Reset animation after 2 seconds
                 setTimeout(() => {
                     successIcon.classList.remove('show');
                 }, 2000);
