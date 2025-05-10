@@ -10,18 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
     <style>
         body { font-family: system-ui, sans-serif; }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 1.25rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #e5e7eb;
-        }
         .gradient-divider {
-            height: 1px;
-            background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.5), rgba(59, 130, 246, 0.2));
+            height: 1.5px;
+            background: linear-gradient(to right, rgba(209, 213, 219, 0.4), rgba(156, 163, 175, 0.7), rgba(209, 213, 219, 0.4));
             margin: 0 auto;
             width: 100%;
         }
@@ -33,6 +24,31 @@
             font-family: 'Newsreader', 'Times New Roman', Times, serif;
             color: #2d2d2d;
             letter-spacing: -0.01em;
+        }
+        .copy-success {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            margin-left: 4px;
+        }
+        .copy-success.show {
+            display: inline-flex;
+            opacity: 1;
+            animation: fadeInOut 2s ease;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .copy-btn {
+            position: relative;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -50,9 +66,22 @@
                         <p>✰ Present: Generative AI Enthusiast / K-line Enthusiast / <a href="https://www.qodo.ai/" class="underline" target="_blank">@QodoAI</a>.</p>
                     </div>
                     <div class="flex space-x-4 mt-2">
-                        <a href="#" class="text-blue-600 hover:underline" target="_blank">GitHub</a>
-                        <a href="#" class="text-blue-600 hover:underline" target="_blank">Twitter</a>
-                        <a href="mailto:example@example.com" class="text-blue-600 hover:underline">Mail</a>
+                        <a href="https://x.com/yuli_kamakura" class="hover:opacity-80" target="_blank" aria-label="Twitter">
+                            <img src="assets/ctwitter.svg" alt="Twitter" class="w-8 h-8" width="32" height="32">
+                        </a>
+                        <a href="https://github.com/barnett-yuxiang" class="hover:opacity-80" target="_blank" aria-label="GitHub">
+                            <img src="assets/cgithub.svg" alt="GitHub" class="w-8 h-8" width="32" height="32">
+                        </a>
+                        <div class="relative">
+                            <button class="copy-btn hover:opacity-80" aria-label="Copy Email" onclick="copyEmail()">
+                                <img src="assets/cemail.svg" alt="Email" class="w-8 h-8" width="32" height="32">
+                                <span class="copy-success text-green-500 bg-white rounded-full shadow-sm p-0.5 flex items-center justify-center" style="width: 24px; height: 24px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -63,19 +92,113 @@
     </section>
 
     <!-- Timeline (Same bg as Header) -->
-    <section class="bg-gray-50 py-12">
-        <div class="max-w-3xl mx-auto px-4">
+    <section class="bg-gray-50 pt-4 pb-12">
+        <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-xl font-semibold mb-4">Timeline</h2>
-            <div class="relative pl-8 space-y-6 timeline">
+            <div class="relative space-y-12">
                 <div class="relative">
-                    <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
-                    <h3 class="font-semibold">2024 — Started My AI Journey</h3>
-                    <p class="text-sm text-gray-600">Working on LLMs and deploying small open-source tools.</p>
+                    <div class="flex items-start">
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0 mr-4 mt-2"></div>
+                        <div class="w-12 h-12 bg-white rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden border border-gray-300">
+                            <img src="assets/bootstrap_logo.png" alt="Bootstrap Logo" class="w-8 h-8 object-contain">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold">Independent Entrepreneur | AI for Coding & U.S. Equity Trader</h3>
+                            <p class="text-gray-600 mt-2 mb-3">Contributed to CodiumAI, an Israeli AI startup, as an open-source developer, participating in the design, development, maintenance, and deployment of two core projects: <a href="https://github.com/qodo-ai/pr-agent" class="text-blue-600 underline" target="_blank">PR-Agent</a> and <a href="https://github.com/qodo-ai/qodo-cover" class="text-blue-600 underline" target="_blank">Cover-Agent</a>.</p>
+                            <p class="text-gray-600">These tools leverage AI-driven solutions to enhance the efficiency and automation of continuous code review and continuous testing. CodiumAI has completed two funding rounds: an $11M Seed round in 2023 and a $40M Series A in 2024.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="relative">
-                    <span class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full"></span>
-                    <h3 class="font-semibold">2023 — Left Big Tech, Focused on Solo Projects</h3>
-                    <p class="text-sm text-gray-600">Began building tools and trading systems independently.</p>
+                    <div class="flex items-start">
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0 mr-4 mt-2"></div>
+                        <div class="w-12 h-12 bg-white rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden border border-gray-300">
+                            <img src="assets/capcut_logo.png" alt="CapCut Logo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold">Mobile Infra Engineer</h3>
+                            <p class="text-gray-600 mt-2 mb-3">Responsible for engineering productivity, focusing on optimizing development processes and addressing pain points related to release quality, covering areas such as establishing engineering standards, managing release quality, and shifting quality controls leftward.</p>
+                            <p class="text-gray-600 mb-3">Established and implemented comprehensive release management SOPs, including standardized MR workflows, gray release strategies, stability monitoring, and hotfix mechanisms. These measures significantly reduced delays and skipped releases (quarterly skips <span style="color:#10b981; font-weight:600;">≤ 3</span>, minor release rate <span style="color:#10b981; font-weight:600;">≤ 10%</span>, code freeze time decreased from <span style="color:#e11d48; font-weight:600;">7.67h</span> to <span style="color:#10b981; font-weight:600;">5h</span>).</p>
+                            <p class="text-gray-600">Additionally, led the development of internal productivity tools featuring automated batch MR integrations, issue auto-attribution, and IM-based automated notifications, resulting in a productivity improvement exceeding <span style="color:#e11d48; font-weight:600;">60%</span> (daily OnCall workload reduced from <span style="color:#e11d48; font-weight:600;">9 PD</span> to <span style="color:#10b981; font-weight:600;">3.5 PD</span>).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="flex items-start">
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0 mr-4 mt-2"></div>
+                        <div class="w-12 h-12 bg-white rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden border border-gray-300">
+                            <img src="assets/bytedance_logo.png" alt="ByteDance Logo" class="w-8 h-8 object-contain">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold">Infra, Quality & Experience, Full-Stack</h3>
+                            <p class="text-gray-600 mt-2 mb-3">Responsible for three product lines within the Quality Infra, including annual planning, product design, technical implementation, and facilitating cross-team collaboration and KA business integration:</p>
+
+                            <p class="text-gray-600 mt-3 mb-2"><span class="font-medium">Performance Analysis System:</span></p>
+
+                            <p class="text-gray-600 ml-4 mb-2"><span class="font-medium">Client-side (<span class="font-medium underline">ByTrace</span>):</span> Developed diagnostic tools for performance regression attribution during the development stage, including single-trace analysis (<span class="font-medium underline">Tracery</span>) and aggregate comparison analysis (<span class="font-medium underline">Comparison View</span>).</p>
+
+                            <p class="text-gray-600 ml-4 mb-3"><span class="font-medium">Server-side (<span class="font-medium underline">ByteHunter</span>):</span> An AIOps solution providing alarm suppression and root cause analysis.</p>
+
+                            <p class="text-gray-600 mt-3 mb-2"><span class="font-medium">Testing Services (<span class="font-medium underline">App Competitor Evaluation</span>):</span> Time-based benchmarking using high-speed cameras and frame-by-frame video analysis; resource-level benchmarking using low-level performance metrics (e.g., CPU, Memory) collected via PerfAgent and Diggo.</p>
+
+                            <p class="text-gray-600 mt-3 mb-2"><span class="font-medium">Intelligent Testing (<span class="font-medium underline">SmartEye</span>):</span> Precision testing and code coverage analysis tools, enabling intelligent test case minimization and optimization.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="flex items-start">
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0 mr-4 mt-2"></div>
+                        <div class="w-12 h-12 bg-white rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden border border-gray-300">
+                            <img src="assets/alibaba_logo.png" alt="Alibaba Logo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold">Android Client Engineer</h3>
+                            <p class="text-gray-600 mt-2 mb-2">Product: </p>
+                            <p class="text-gray-600 mb-2">InfoFlow feature development: participated in business architecture refactoring and led the design and implementation of the Router component.</p>
+                            <p class="text-gray-600 mb-2">Optimized app performance, KPI improvements in crash rates, UI responsiveness, and launch times.</p>
+                            <p class="text-gray-600">Independently delivered two innovative short-video applications targeted specifically at the Indonesian market.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="flex items-start">
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0 mr-4 mt-2"></div>
+                        <div class="w-12 h-12 bg-blue-50 rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden border border-gray-300">
+                            <img src="assets/meizu_logo.png" alt="Meizu Logo" class="w-9 h-9 object-contain">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold">Android OS Engineer</h3>
+                            <p class="text-gray-600 mt-2 mb-2">Flyme Performance Team Member</p>
+                            <p class="text-gray-600 mb-2">Identified and implemented performance optimizations within the Android Open Source Project (AOSP).</p>
+                            <p class="text-gray-600 mb-2">Developed and delivered new system-level features for Flyme OS.</p>
+                            <p class="text-gray-600 mb-2">Maintained the Android graphics stack, managed SurfaceFlinger and HWUI codebases, and resolved graphics-related issues on MediaTek and Samsung platforms.</p>
+                            <p class="text-gray-600">Led performance optimization for select smartphone models, maintained comprehensive optimization checklists, and ensured successful implementation and validation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="flex items-start">
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0 mr-4 mt-2"></div>
+                        <div class="w-12 h-12 bg-gray-50 rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden">
+                            <img src="assets/jinan_university_logo.png" alt="Jinan University Logo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold">Jinan University | Master's Degree</h3>
+                            <p class="text-gray-600 mt-2">Communication and Information Systems, GPA: 87.4</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="flex items-start">
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0 mr-4 mt-2"></div>
+                        <div class="w-12 h-12 bg-gray-50 rounded-md flex-shrink-0 mr-4 flex items-center justify-center overflow-hidden">
+                            <img src="assets/bit_logo.png" alt="Beijing Institute of Technology Logo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold">Beijing Institute of Technology | Bachelor's Degree</h3>
+                            <p class="text-gray-600 mt-2">Information Engineering, GPA: 88.6</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,5 +238,18 @@
     <!-- Footer Spacer -->
     <footer class="border-t pt-4 mt-8 h-16 max-w-3xl mx-auto px-4"></footer>
 
+    <script>
+        function copyEmail() {
+            const email = "barnett.yuxiang@gmail.com";
+            navigator.clipboard.writeText(email).then(function() {
+                const successIcon = document.querySelector('.copy-success');
+                successIcon.classList.add('show');
+
+                setTimeout(() => {
+                    successIcon.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
