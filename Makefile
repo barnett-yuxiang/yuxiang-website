@@ -36,4 +36,5 @@ package: prepare
 clean:
 	@echo "Cleaning build artifacts..."
 	@rm -rf $(BUILD_DIR)
+	@rm -rf $(DIST_DIR)
 	@echo "Done!"
