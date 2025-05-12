@@ -69,6 +69,57 @@
             background-color: #e5e7eb;
             z-index: 0;
         }
+        /* Image preview modal styling */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .modal-img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+        .close-modal:hover {
+            opacity: 1;
+        }
+        .project-image {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .project-image:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -263,10 +314,72 @@
     <section class="bg-white py-4">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-xl font-semibold mb-4">Talks</h2>
-            <ul class="space-y-2 list-disc list-inside">
-                <li><a href="#" class="text-blue-600 hover:underline">GPT Optimization @ AI Meetup</a></li>
-                <li><a href="#" class="text-blue-600 hover:underline">Infra for Indie Hackers — 2024</a></li>
-            </ul>
+
+            <!-- Grid of talks -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Talk 1 -->
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <div class="block">
+                        <!-- 1:1 aspect ratio image with fixed height -->
+                        <div class="h-48 w-full relative overflow-hidden">
+                            <img src="assets/android-graphics.png" alt="Android Graphics"
+                                 class="absolute w-full h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-y-[-5px] object-cover">
+                        </div>
+                        <div class="p-2">
+                            <p class="text-gray-600 text-sm">
+                                Delivered a technical talk Alibaba's "匠心堂" on Android Graphics.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Talk 2 -->
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <div class="block">
+                        <!-- 1:1 aspect ratio image with fixed height -->
+                        <div class="h-48 w-full relative overflow-hidden">
+                            <img src="assets/trace-compare.jpeg" alt="Trace Comparison Tool"
+                                 class="absolute h-full w-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover">
+                        </div>
+                        <div class="p-2">
+                            <p class="text-gray-600 text-sm">
+                                Mobile App Testing at Scale - Regression and two performance analysis tools
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Talk 3 -->
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <div class="block">
+                        <!-- 1:1 aspect ratio image with fixed height -->
+                        <div class="h-48 w-full relative overflow-hidden">
+                            <img src="assets/android-performance-an-overview.png" alt="Android Performance Overview"
+                                 class="absolute h-full w-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover">
+                        </div>
+                        <div class="p-2">
+                            <p class="text-gray-600 text-sm">
+                                <a href="https://docs.google.com/presentation/d/1y1eyMIll8xNlPdVC1exCCxHT0vrCUsX-/" class="text-blue-600 underline hover:underline" target="_blank">Android performance Overview</a> at ByteDance Infra, covering optimizations in Douyin and Toutiao, and OS-level improvements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Talk 4 -->
+                <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <div class="block">
+                        <!-- 1:1 aspect ratio image with fixed height -->
+                        <div class="h-48 w-full flex items-center justify-center border border-gray-300 bg-gray-100">
+                            <span class="text-gray-400"></span>
+                        </div>
+                        <div class="p-2">
+                            <p class="text-gray-600 text-sm">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -276,13 +389,14 @@
             <h2 class="text-xl font-semibold mb-4">Pet Projects</h2>
 
             <!-- Project List -->
-            <div class="space-y-6">
-                <!-- Project 1: Color Mix Buddy -->
+            <div class="space-y-4">
+                <!-- Project 1: Color Mix Buddy - Standard layout with image left, content right -->
                 <div class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden border border-gray-200">
                     <!-- Left: Project Image Container (3:2 ratio) -->
                     <div class="md:w-1/3 flex-shrink-0 flex items-center justify-center p-1 md:p-2">
                         <img src="assets/color-mix-buddy.png" alt="Color Mix Buddy Preview"
-                             class="w-full h-auto object-cover border border-gray-300 rounded-lg">
+                             class="w-full h-auto object-cover border border-gray-300 rounded-lg project-image"
+                             onclick="openImageModal('assets/color-mix-buddy.png', 'Color Mix Buddy')">
                     </div>
 
                     <!-- Right: Project Information Container -->
@@ -317,12 +431,13 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Fancy Text Formatter -->
+                <!-- Project 2: Fancy Text Formatter - Standard layout with image left, content right -->
                 <div class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden border border-gray-200">
                     <!-- Left: Project Image Container (3:2 ratio) -->
                     <div class="md:w-1/3 flex-shrink-0 flex items-center justify-center p-1 md:p-2">
                         <img src="assets/fancy-text-formatter.png" alt="Fancy Text Formatter Preview"
-                             class="w-full h-auto object-cover border border-gray-300 rounded-lg">
+                             class="w-full h-auto object-cover border border-gray-300 rounded-lg project-image"
+                             onclick="openImageModal('assets/fancy-text-formatter.png', 'Fancy Text Formatter')">
                     </div>
 
                     <!-- Right: Project Information Container -->
@@ -356,21 +471,207 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 3: Perfetto Plus - Taller layout with additional content -->
+                <div class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <!-- Left: Project Image Container (Flexible Height) -->
+                    <div class="md:w-1/3 flex-shrink-0 flex items-start justify-center p-1 md:p-2 pt-2 md:pt-3">
+                        <img src="assets/perfetto-plus.png" alt="Perfetto Plus Preview"
+                             class="w-full h-auto object-cover border border-gray-300 rounded-lg project-image"
+                             onclick="openImageModal('assets/perfetto-plus.png', 'Perfetto Plus')">
+                    </div>
+
+                    <!-- Right: Project Information Container (Taller) -->
+                    <div class="py-1 pr-1 md:py-2 md:pr-2 pl-0 flex flex-col justify-between flex-grow">
+                        <!-- 1. Title Section - Fixed Height -->
+                        <div class="h-5 mb-0">
+                            <p class="text-sm font-semibold">Perfetto Plus</p>
+                        </div>
+
+                        <!-- 2. Description Section - Taller with More Text -->
+                        <div class="flex-grow overflow-hidden mb-2">
+                            <p class="text-gray-600 text-sm">I extended Google's Perfetto project to support the <a href="https://github.com/uber/nanoscope/wiki/Architecture%3A-Nanoscope-ROM" class="text-blue-600 hover:underline" target="_blank">Nanoscope protocol</a>—an extremely low-overhead method-tracing solution for Android. By modifying the ART, Nanoscope traces Java method calls with minimal performance impact, incurring <span class="underline">only around 10 milliseconds of overhead</span> even when tracing millions of method calls on the main thread.</p>
+
+                            <p class="text-gray-600 text-sm mt-2">The tracing strategy is as follows:</p>
+
+                            <ul class="list-disc list-inside text-gray-600 text-sm mt-1 ml-1">
+                                <li>Upon method entry, a method pointer and timestamp are written to the trace buffer, indicating a push to the call stack.</li>
+                                <li>Upon method exit, a nullptr and timestamp are recorded, indicating a pop from the stack.</li>
+                                <li>When tracing ends, the collected data is processed and flushed to disk.</li>
+                            </ul>
+
+                            <p class="text-gray-600 text-sm mt-2">The output format is a simple, human-readable push/pop structure, pattern:<br>
+                            <span class="font-mono text-xs bg-gray-100 px-1">[timestamp]:[methodSignature | "POP"]</span></p>
+
+                            <p class="text-gray-600 text-sm mt-2">Why not Google Trace Event Format because it proved excessively verbose and inefficient at handling millions of trace events, slowing both the generation and parsing of trace files.</p>
+                        </div>
+
+                        <!-- 3. Links Section - Fixed Height with Domain and Codebase Links -->
+                        <div class="h-6 flex items-center">
+                            <!-- Project Domain Link -->
+                            <a href="https://www.yuli-kamakura.com/pets/perfetto-plus" class="text-gray-600 hover:text-gray-800 transition-colors duration-200 flex items-center text-sm mr-6" target="_blank">
+                                <span class="mr-2 font-medium">yuli-kamakura.com/pets/perfetto-plus</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                            <!-- Project Codebase Link -->
+                            <a href="https://github.com/barnett-yuxiang/perfetto/tree/perfetto-plus" class="text-gray-600 hover:text-gray-800 transition-colors duration-200 flex items-center text-sm" target="_blank">
+                                <span class="mr-2 font-medium">codebase</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Video Transcribe - Standard layout with on-prem tag -->
+                <div class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <!-- Left: Project Image Container (3:2 ratio) -->
+                    <div class="md:w-1/3 flex-shrink-0 flex items-start justify-center p-1 md:p-2 pt-2 md:pt-3">
+                        <img src="assets/video-transcribe.png" alt="Video Transcribe Preview"
+                             class="w-full h-auto object-cover border border-gray-300 rounded-lg project-image"
+                             onclick="openImageModal('assets/video-transcribe.png', 'Video Transcribe')">
+                    </div>
+
+                    <!-- Right: Project Information Container -->
+                    <div class="py-1 pr-1 md:py-2 md:pr-2 pl-0 flex flex-col justify-between flex-grow md:max-h-[200px] overflow-hidden">
+                        <!-- 1. Title Section - Fixed Height -->
+                        <div class="h-5 mb-0">
+                            <p class="text-sm font-semibold">Video Transcribe</p>
+                        </div>
+
+                        <!-- 2. Description Section - Flexible Height with Truncation -->
+                        <div class="flex-grow overflow-hidden mb-2">
+                            <p class="text-gray-600 text-sm line-clamp-3">This project uses OpenAI Whisper to generate high-quality subtitles from local video files or YouTube links, supporting Chinese and other languages, with built-in 360p video download, WAV audio extraction, optional timestamps, and a simple, flexible CLI.</p>
+
+                            <p class="text-gray-600 text-sm mt-2">The model will be downloaded automatically on first run and cached in the default directory <span class="font-mono text-xs bg-gray-100 px-1">~/.cache/whisper</span>.</p>
+                        </div>
+
+                        <!-- 3. Links Section - Fixed Height with Domain and Codebase Links -->
+                        <div class="h-6 flex items-center">
+                            <!-- Project Domain Link -->
+                            <span class="text-gray-600 flex items-center text-sm mr-6">
+                                <span class="bg-indigo-100 text-indigo-600 px-2.5 py-0.5 rounded-full font-medium text-xs">on-prem</span>
+                            </span>
+                            <!-- Project Codebase Link -->
+                            <a href="https://github.com/barnett-yuxiang/video-transcribe" class="text-gray-600 hover:text-gray-800 transition-colors duration-200 flex items-center text-sm" target="_blank">
+                                <span class="mr-2 font-medium">codebase</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Chrome Extension Enhanced Screenshot - Standard layout with web store link -->
+                <div class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <!-- Left: Project Image Container (3:2 ratio) -->
+                    <div class="md:w-1/3 flex-shrink-0 flex items-start justify-center p-1 md:p-2 pt-2 md:pt-3">
+                        <img src="assets/chrome-enhanced-screenshot.png" alt="Enhanced Screenshot Chrome Extension Preview"
+                             class="w-full h-auto object-cover border border-gray-300 rounded-lg project-image"
+                             onclick="openImageModal('assets/chrome-enhanced-screenshot.png', 'Chrome Enhanced Screenshot')">
+                    </div>
+
+                    <!-- Right: Project Information Container -->
+                    <div class="py-1 pr-1 md:py-2 md:pr-2 pl-0 flex flex-col justify-between flex-grow md:max-h-[200px] overflow-hidden">
+                        <!-- 1. Title Section - Fixed Height -->
+                        <div class="h-5 mb-0">
+                            <p class="text-sm font-semibold">Chrome Extension: Enhanced Screenshot</p>
+                        </div>
+
+                        <!-- 2. Description Section - Flexible Height with Truncation -->
+                        <div class="flex-grow overflow-hidden mb-2">
+                            <p class="text-gray-600 text-sm line-clamp-3">A browser extension designed to enhance screenshot functionality with beautiful backgrounds and customization options.</p>
+                        </div>
+
+                        <!-- 3. Links Section - Fixed Height with Domain and Codebase Links -->
+                        <div class="h-6 flex items-center">
+                            <!-- Project Domain Link -->
+                            <a href="https://chromewebstore.google.com/detail/enhanced-screenshot/cddimlgimlldooeihfjbidlpicljoall" class="text-gray-600 hover:text-gray-800 transition-colors duration-200 flex items-center text-sm mr-6" target="_blank">
+                                <span class="mr-2 font-medium">chrome web store</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                            <!-- Project Codebase Link -->
+                            <a href="https://github.com/barnett-yuxiang/purple-star" class="text-gray-600 hover:text-gray-800 transition-colors duration-200 flex items-center text-sm" target="_blank">
+                                <span class="mr-2 font-medium">codebase</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Day Trading - Standard layout with list content and indigo pill tags -->
+                <div class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden border border-gray-200">
+                    <!-- Left: Project Image Container (3:2 ratio) -->
+                    <div class="md:w-1/3 flex-shrink-0 flex items-start justify-center p-1 md:p-2 pt-2 md:pt-3">
+                        <img src="assets/trader.png" alt="Day Trading Preview"
+                             class="w-full h-auto object-cover border border-gray-300 rounded-lg project-image"
+                             onclick="openImageModal('assets/trader.png', 'Day Trading')">
+                    </div>
+
+                    <!-- Right: Project Information Container -->
+                    <div class="py-1 pr-1 md:py-2 md:pr-2 pl-0 flex flex-col justify-between flex-grow md:max-h-[200px] overflow-hidden">
+                        <!-- 1. Title Section - Fixed Height -->
+                        <div class="h-5 mb-0">
+                            <p class="text-sm font-semibold">Day Trading @ U.S. Stock Market</p>
+                        </div>
+
+                        <!-- 2. Description Section - Flexible Height with Truncation -->
+                        <div class="flex-grow overflow-hidden mb-2">
+                            <ul class="list-none text-gray-600 text-sm space-y-1">
+                                <li><span class="font-medium">Annual Return:</span> +20%</li>
+                                <li><span class="font-medium">Total Trades per Year:</span> 120 trades (approximately 2–3 trades per week)</li>
+                                <li><span class="font-medium">Average Win Rate:</span> 47%</li>
+                                <li><span class="font-medium">Average Risk-Reward Ratio (R:R):</span> 1.6 : 1</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. Tags Section - Fixed Height with Trading Tags -->
+                        <div class="h-6 flex items-center">
+                            <!-- Trading Strategy Tag -->
+                            <span class="bg-indigo-100 text-indigo-600 px-2.5 py-0.5 rounded-full font-medium text-xs mr-2">
+                                5-Minute Price Action Pattern
+                            </span>
+                            <!-- Trading Market Tag -->
+                            <span class="bg-indigo-100 text-indigo-600 px-2.5 py-0.5 rounded-full font-medium text-xs">
+                                E-MINI S&P 500 FUTURES
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- End of Project List -->
         </div>
     </section>
+    <!-- End of Pet Projects Section -->
 
     <!-- Featured Writing Section - Blog and publications -->
     <section class="bg-white py-4">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-xl font-semibold mb-4">Featured Writing</h2>
-            <p class="mb-2">I have a Bear blog where I write about technology, programming, and personal projects.</p>
-            <a href="#" class="text-blue-600 hover:underline">Visit my blog →</a>
+            <p class="mb-2 font-['Verdana',sans-serif]">I have a <span class="text-blue-600 underline">Bear blog</span> where I collect ideas on technology, product, and AI learning.</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t pt-4 mt-8 h-16 max-w-4xl mx-auto px-4"></footer>
+    <footer class="border-t pt-3 pb-4 mt-3 max-w-4xl mx-auto px-4 flex items-center justify-center">
+        <span class="text-gray-500 text-sm">&copy; 2025 &nbsp;•&nbsp; Powered by Cursor &nbsp;•&nbsp; Alibaba Cloud</span>
+    </footer>
+
+    <!-- Image Preview Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeImageModal(event)">&times;</span>
+            <img id="modalImage" class="modal-img" src="" alt="">
+        </div>
+    </div>
 
     <!-- JavaScript for interactive functionality -->
     <script>
@@ -390,6 +691,52 @@
                 }, 2000);
             });
         }
+
+        /**
+         * Opens the image modal with the clicked image
+         * @param {string} imageSrc - Source path of the image
+         * @param {string} altText - Alternative text for the image
+         */
+        function openImageModal(imageSrc, altText) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+
+            // Set image source and alt text
+            modalImg.src = imageSrc;
+            modalImg.alt = altText;
+
+            // Show modal with animation
+            modal.classList.add('show');
+
+            // Prevent scrolling on body while modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        /**
+         * Closes the image modal
+         * @param {Event} event - The click event
+         */
+        function closeImageModal(event) {
+            // Only close if clicking the modal background or the close button
+            if (event.target.id === 'imageModal' || event.target.classList.contains('close-modal')) {
+                const modal = document.getElementById('imageModal');
+                modal.classList.remove('show');
+
+                // Re-enable scrolling on body
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Allow ESC key to close the modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('imageModal');
+                if (modal.classList.contains('show')) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
     </script>
 </body>
 </html>
