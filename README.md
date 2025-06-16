@@ -1,8 +1,8 @@
-## yuxiang-website
+## Introduction
 
 My personal platform showcasing work experience, technical articles, and creative projects.
 
-### External Tools Used
+## External Tools Used
 
 ```bash
 git diff --stat
